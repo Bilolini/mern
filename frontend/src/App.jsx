@@ -1,14 +1,24 @@
 import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
 import './App.css'
+import Dashboard from '../pages/Dashboard'
+import Login from '../pages/Login';
+import Register from '../pages/Register';
+import { BrowserRouter as Router, Routes, Route, Outlet } from 'react-router-dom'
+import Header from './../components/Header';
 
 function App() {
-    const [mode, setMode] = useState(false)
     return (
-        <section style={{ colorScheme: mode ? 'dark' : 'light' }}>
-                <button  onClick={() => setMode(prev => !prev)}>Switch to dark</button>
-        </section>
+        <Router>
+            <div className='container'>
+                <Header />
+                <Routes>
+                    <Route path='/' element={<Dashboard />} />
+                    <Route path='/login' element={<Login />} />
+                    <Route path='/register' element={<Register />} />
+                </Routes>
+            </div>
+            <Outlet />
+        </Router>
     )
 }
 

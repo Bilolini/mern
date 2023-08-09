@@ -1,7 +1,15 @@
 import { useState, useEffect } from 'react'
 import { FaUser } from 'react-icons/fa';
+import { useDispatch, useSelector } from 'react-redux'
+import { useNavigate } from 'react-router-dom';
+import { toast } from 'react-toastify';
+import { register, reset } from '../features/auth/AuthSlice';
+import { ThreeDots } from 'react-loader-spinner'
 
 function Register() {
+    const dispatch = useDispatch();
+    const navigate = useNavigate();
+    const { user, isLoading, isError, isSuccess, message } = useSelector(state => state.auth)
     const [formData, setFormData] = useState({
         name: '',
         email: '',
@@ -9,13 +17,46 @@ function Register() {
         password2: ''
     })
     const { name, email, password, password2 } = formData;
+    useEffect(() => {
+        if (isError) {
+            toast.error(message)
+        }
+        if (isSuccess || user) {
+            navigate('/')
+        }
+
+        dispatch(reset())
+    }, [user, isError, isSuccess, message, navigate, dispatch])
     const onChange = (e) => {
-        setFormData(prev => ({...prev, [e.target.name]: e.target.value}))
+        setFormData(prev => ({ ...prev, [e.target.name]: e.target.value }))
     }
     const onSubmit = (e) => {
         e.preventDefault();
-        console.log(formData)
+        if (password !== password2) {
+            toast.error('Passwords do not match')
+        } else {
+            const userData = {
+                name, email, password,
+            }
+            dispatch(register(userData))
+        }
     }
+
+    if (isLoading) {
+        return (<>
+            <ThreeDots
+                height="80"
+                width="80"
+                radius="9"
+                color="#4fa94d"
+                ariaLabel="three-dots-loading"
+                wrapperStyle={{}}
+                wrapperClassName=""
+                visible={true}
+            />
+        </>)
+    }
+
     return (
         <>
             <section className='heading flex justify-center items-center p-8 flex-col'>

@@ -4,7 +4,7 @@ import { useDispatch, useSelector } from 'react-redux'
 import { useNavigate } from 'react-router-dom';
 import { toast } from 'react-toastify';
 import { register, reset } from '../features/auth/AuthSlice';
-import { ThreeDots } from 'react-loader-spinner'
+import Spinner from '../components/Spinner';
 
 function Register() {
     const dispatch = useDispatch();
@@ -43,18 +43,7 @@ function Register() {
     }
 
     if (isLoading) {
-        return (<>
-            <ThreeDots
-                height="80"
-                width="80"
-                radius="9"
-                color="#4fa94d"
-                ariaLabel="three-dots-loading"
-                wrapperStyle={{}}
-                wrapperClassName=""
-                visible={true}
-            />
-        </>)
+        return <Spinner />
     }
 
     return (
@@ -64,7 +53,7 @@ function Register() {
                 <p>Please create an account</p>
             </section>
             <section>
-                <form className='flex flex-col gap-5' onSubmit={onSubmit}>
+                <form className='flex flex-col gap-5 w-[300px]' onSubmit={onSubmit}>
                     <input
                         className='rounded-lg'
                         type="text"

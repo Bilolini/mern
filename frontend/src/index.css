@@ -37,7 +37,10 @@ h2 {
     line-height: 1.1;
 }
 
-/* button {
+h3 {
+    font-size: 1.7em;
+}
+.btn {
     border-radius: 8px;
     border: 1px solid gray;
     padding: 0.6em 1.2em;
@@ -47,17 +50,17 @@ h2 {
     cursor: pointer;
     transition: background-color linear 0.25s;
 }
-button:hover {
+.btn:hover {
     background-color: #646cff;
     color: white;
 }
-button:focus,
-button:focus-visible {
+.btn:focus,
+.btn:focus-visible {
     outline: 1px auto -webkit-focus-ring-color;
-}
+} 
 a:hover {
     color: #747bff;
-} */
+} 
 @media (prefers-color-scheme: light) {
     .btn {
         background-color: #f9f9f9;

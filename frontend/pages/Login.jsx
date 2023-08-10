@@ -4,7 +4,7 @@ import { useDispatch, useSelector } from 'react-redux'
 import { useNavigate } from 'react-router-dom';
 import { toast } from 'react-toastify';
 import { login, reset } from '../features/auth/AuthSlice';
-import { ThreeDots } from 'react-loader-spinner'
+import Spinner from '../components/Spinner';
 
 
 function Login() {
@@ -37,18 +37,7 @@ function Login() {
         dispatch(login(userData))
     }
     if (isLoading) {
-        return (<>
-            <ThreeDots
-                height="80"
-                width="80"
-                radius="9"
-                color="#4fa94d"
-                ariaLabel="three-dots-loading"
-                wrapperStyle={{}}
-                wrapperClassName=""
-                visible={true}
-            />
-        </>)
+        return <Spinner />
     }
 
     return (

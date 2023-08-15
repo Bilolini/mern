@@ -143,7 +143,6 @@ export const goalSlice = createSlice({
                 state.isSuccess = true;
                 state.goals.forEach(elem => {
                     if(elem._id === payload.id){
-                        console.log(payload)
                         elem.text = payload.text;
                     }
                 });

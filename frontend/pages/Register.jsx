@@ -53,7 +53,7 @@ function Register() {
                 <p>Please create an account</p>
             </section>
             <section>
-                <form className='flex flex-col gap-5 w-[300px]' onSubmit={onSubmit}>
+                <form className='flex flex-col gap-5' onSubmit={onSubmit}>
                     <input
                         className='rounded-lg'
                         type="text"

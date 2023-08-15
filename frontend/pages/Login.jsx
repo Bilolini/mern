@@ -44,10 +44,10 @@ function Login() {
         <div >
             <section className='heading flex justify-center p-8 items-center flex-col'>
                 <h2 className='flex items-center gap-3 mb-6 font-bold'><FaSignInAlt /> Login </h2>
-                <p>Please login into your account</p>
+                <p>Please log in into your account</p>
             </section>
-            <section>
-                <form className='flex flex-col gap-5' onSubmit={onSubmit}>
+            <section className='flex justify-center items-center'>
+                <form className='flex flex-col gap-5 w-[300px]' onSubmit={onSubmit}>
                     <input
                         className='rounded-lg'
                         type="email"
@@ -68,7 +68,7 @@ function Login() {
                         onChange={onChange}
                         autoComplete='on'
                     />
-                    <button className='btn' type='submit'>Register</button>
+                    <button className='btn' type='submit'>Log in</button>
                 </form>
             </section>
         </div>

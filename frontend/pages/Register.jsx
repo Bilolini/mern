@@ -52,8 +52,8 @@ function Register() {
                 <h2 className='flex items-center gap-3 mb-6 font-bold'><FaUser /> Register </h2>
                 <p>Please create an account</p>
             </section>
-            <section>
-                <form className='flex flex-col gap-5' onSubmit={onSubmit}>
+            <section className='flex justify-center items-center'>
+                <form className='flex flex-col gap-5 w-[300px]' onSubmit={onSubmit}>
                     <input
                         className='rounded-lg'
                         type="text"

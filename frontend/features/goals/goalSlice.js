@@ -28,6 +28,26 @@ export const createGoal = createAsyncThunk(
     }
 );
 
+// Create a new goal
+export const updateGoal = createAsyncThunk(
+    "goals/update",
+    async (updatedData, thunkAPI) => {
+        try {
+            const token = thunkAPI.getState().auth.user.token;
+            return await goalService.updateGoal(updatedData.id, updatedData, token);
+        } catch (error) {
+            const message =
+                (error.response &&
+                    error.response.data &&
+                    error.response.data.message) ||
+                error.message ||
+                error.toString();
+            return thunkAPI.rejectWithValue(message);
+        }
+    }
+);
+
+
 // Get user goals
 export const getGoals = createAsyncThunk(
     "goals/getAll",
@@ -108,9 +128,27 @@ export const goalSlice = createSlice({
             .addCase(deleteGoal.fulfilled, (state, {payload}) => {
                 state.isLoading = false;
                 state.isSuccess = true;
-                state.goals = state.goals.filter(elem => elem._id !== payload);
+                state.goals = state.goals.filter(elem => elem._id !== payload.id);
             })
             .addCase(deleteGoal.rejected, (state, {payload}) => {
+                state.isLoading = false;
+                state.isError = true;
+                state.message = payload;
+            })
+            .addCase(updateGoal.pending, state => {
+                state.isLoading = true;
+            })
+            .addCase(updateGoal.fulfilled, (state, {payload}) => {
+                state.isLoading = false;
+                state.isSuccess = true;
+                state.goals.forEach(elem => {
+                    if(elem._id === payload.id){
+                        console.log(payload)
+                        elem.text = payload.text;
+                    }
+                });
+            })
+            .addCase(updateGoal.rejected, (state, {payload}) => {
                 state.isLoading = false;
                 state.isError = true;
                 state.message = payload;

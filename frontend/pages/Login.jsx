@@ -46,7 +46,7 @@ function Login() {
                 <h2 className='flex items-center gap-3 mb-6 font-bold'><FaSignInAlt /> Login </h2>
                 <p>Please log in into your account</p>
             </section>
-            <section className='flex justify-center items-center'>
+            <section className='flex justify-center items-center '>
                 <form className='flex flex-col gap-5 w-[300px]' onSubmit={onSubmit}>
                     <input
                         className='rounded-lg'

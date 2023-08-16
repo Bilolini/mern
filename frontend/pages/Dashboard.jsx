@@ -6,6 +6,8 @@ import { getGoals, reset } from '../features/goals/goalSlice';
 import GoalItem from '../components/GoalItem';
 import { toast } from 'react-toastify';
 import Spinner from '../components/Spinner';
+import QA from './QA';
+import { Button } from 'flowbite-react';
 
 function Dashboard() {
     const navigate = useNavigate();
@@ -23,22 +25,24 @@ function Dashboard() {
         return () => {
             dispatch(reset())
         }
-    }, [user, navigate, isError, message, dispatch])
+    }, [user])
 
-    if(isLoading){
+    if (isLoading) {
         return <Spinner />
     }
     return (
         <>
-            <section>
-                <h2 className='mt-6'>Welcome {user && user.name}.</h2>
-            </section>
-            <GoalForm />
-            <section className='flex mt-5 gap-4 flex-wrap'>
-                {goals.length > 0 ? goals.map(elem => {
-                    return <GoalItem key={elem._id} elem={elem} />
-                }) : <h3>You have not set any goals </h3>}
-            </section>
+           {user ? <div>
+                <section>
+                    <h2 className='mt-6'>Welcome {user && user.name}.</h2>
+                </section>
+                <GoalForm />
+                <section className='flex mt-5 gap-4 flex-wrap'>
+                    {goals.length > 0 ? goals.map(elem => {
+                        return <GoalItem key={elem._id} elem={elem} />
+                    }) : <h3>You have not set any goals </h3>}
+                </section>
+            </div> : <Button gradientDuoTone="purpleToBlue">Login to see what is waiting for you</Button>}
         </>
     )
 }

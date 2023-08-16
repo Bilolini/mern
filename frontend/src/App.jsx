@@ -7,6 +7,8 @@ import { BrowserRouter as Router, Routes, Route, Outlet } from 'react-router-dom
 import Header from './../components/Header';
 import { ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
+import QA from '../pages/QA';
+import Error from '../pages/Error';
 
 function App() {
     return (
@@ -18,6 +20,8 @@ function App() {
                         <Route path='/' element={<Dashboard />} />
                         <Route path='/login' element={<Login />} />
                         <Route path='/register' element={<Register />} />
+                        <Route path='/qa' element={<QA />} />
+                        <Route path='*' element={<Error />} />
                     </Routes>
                 </div>
             </Router>

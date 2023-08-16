@@ -53,7 +53,7 @@ function Header() {
                                     <FaQuestion /> FAQ
                                 </NavLink>
                             </li>
-                            <li>
+                            {/* <li>
                                 <NavLink
                                     to="/bugs"
                                     style={({ isActive }) => ({ color: isActive ? "#535bf2" : "" })}
@@ -62,7 +62,7 @@ function Header() {
                                 >
                                     <FaBug /> Bugs
                                 </NavLink>
-                            </li>
+                            </li> */}
                             {user ?
                                 (
                                     <>

@@ -4,9 +4,9 @@ import { FaChevronCircleLeft, FaChevronCircleRight } from 'react-icons/fa'
 
 function Bugs() {
     const arrOfBugs = [
-        '../src/assets/error_1.png',
-        '../src/assets/error_2.png',
-        '../src/assets/error_3.png',
+        "http://localhost:5000/images/error_1.png",
+        "http://localhost:5000/images/error_2.png",
+        "http://localhost:5000/images/error_3.png",
     ]
     return (
         <div className='w-full h-96 mt-5'>

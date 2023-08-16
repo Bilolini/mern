@@ -5,11 +5,11 @@ function QA() {
     const arrayOfQuestions = [
         {
             q: 'What technologies were used?',
-            a: 'NodeJs(Express) for the backend, and React with Redux for frontend'
+            a: 'NodeJs(Express) for the backend, and React with Redux for frontend, Vite for setup files, Tailwind for Css, and for ready-made components FLowbite-React'
         },
         {
             q: 'How long did it take?',
-            a: 'It take a long time to choose one project. At first I wanted to build an e-commerce website on MERN, but it seems hard to build all models and connect them together. In the future, I may try this building.'
+            a: 'It take a long time to choose one project, but then 4-5 days. At first I wanted to build an e-commerce website on MERN, but it seems hard to build all models and connect them together. In the future, I may try this building.'
         },
         {
             q: 'Why did you choose MERN stack?',

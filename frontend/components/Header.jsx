@@ -1,4 +1,4 @@
-import { FaQuestion, FaSignInAlt, FaSignOutAlt, FaUser } from 'react-icons/fa'
+import { FaBug, FaQuestion, FaSignInAlt, FaSignOutAlt, FaUser } from 'react-icons/fa'
 import React from 'react'
 import { NavLink, useNavigate } from 'react-router-dom'
 import { useSelector, useDispatch } from 'react-redux';
@@ -51,6 +51,16 @@ function Header() {
                                     aria-current="page"
                                 >
                                     <FaQuestion /> FAQ
+                                </NavLink>
+                            </li>
+                            <li>
+                                <NavLink
+                                    to="/bugs"
+                                    style={({ isActive }) => ({ color: isActive ? "#535bf2" : "" })}
+                                    className="flex items-center gap-2  py-2 pl-3 pr-4 text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:hover:text-gray-700 md:p-0 dark:text-white md:dark:hover:text-gray-500 dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent"
+                                    aria-current="page"
+                                >
+                                    <FaBug /> Bugs
                                 </NavLink>
                             </li>
                             {user ?

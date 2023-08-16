@@ -9,6 +9,7 @@ import { ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import QA from '../pages/QA';
 import Error from '../pages/Error';
+import Bugs from '../pages/Bugs';
 
 function App() {
     return (
@@ -21,6 +22,7 @@ function App() {
                         <Route path='/login' element={<Login />} />
                         <Route path='/register' element={<Register />} />
                         <Route path='/qa' element={<QA />} />
+                        <Route path='/bugs' element={<Bugs />} />
                         <Route path='*' element={<Error />} />
                     </Routes>
                 </div>
